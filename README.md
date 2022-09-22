@@ -4,7 +4,7 @@
 
 ## 2. Data Collecting
 + /eevee/val/jjpark/220916_marcrogene 하위의 1_1.fastq, 1_2.fastq, 2_1.fastq, 2_2.fastq를 사용했다.
-+ NCBI의 [RefSeq genomes FTP](https://ftp.ncbi.nlm.nih.gov/genomes/refseq/)에서 GCF_000002035.6_GRCz11에 대한 모든 정보를 다운 받고, genomic.gff파일을 사용했다.
++ NCBI의 [RefSeq genomes FTP](https://ftp.ncbi.nlm.nih.gov/genomes/refseq/)에서 GCF_000002035.6_GRCz11에 대한 모든 정보를 다운 받고, genomic.gff파일을 주로 사용했다.
 
 ## 3. TrimGalore
 + TrimGalore 0.6.6 version을 이용해, adapter trimming을 진행하였다. 
