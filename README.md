@@ -3,11 +3,26 @@
 + Zebra fish에 1,4-Naphthoquinone을 처리하고, Differentially Expressed Genes (DEGs)를 확인한다.
 
 ## 2. Data Collecting
-+ /eevee/val/jjpark/220916_marcrogene 하위의 1_1.fastq, 1_2.fastq, 2_1.fastq, 2_2.fastq를 사용했다.
++ 충남대학교 생명시스템 과학대학 김철희 교수님 연구실 Ph.d student PUSPANJALI SWAIN의 RNA데이터를 [Marcrogen, Inc.]에서 시퀀싱한 데이터를 사용했다.
++ 총 데이터의 sample은 2개로, sample 1은 Control로, 10hpf, bud stage의 untreated embryo에서 추출한 RNA이고, sample 2는 0.5uM의 1-4-Naphthoquinone을 6hpf에 처리한 후, 10hpf, bud stage의 RNA이다.
+
+|Sample|Category|Treat|Extract point|
+|-|-|-|-|
+|Sample1|Control|NA|10hpf (bud stage)|
+|Sample2|Treated|1-4-Naphthoquinone 0.5uM at 6hpf|10hpf (bud stage)|
+
 + NCBI의 [RefSeq genomes FTP](https://ftp.ncbi.nlm.nih.gov/genomes/refseq/)에서 GCF_000002035.6_GRCz11에 대한 모든 정보를 다운 받고, genomic.gff파일을 주로 사용했다.
++ GCF_000002035.6_GRCz11의 gene 개수는 47,394이고, gene_biotype이 protein_coding인 gene은 32,730개이다. 
 
 ## 3. TrimGalore
-+ TrimGalore 0.6.6 version을 이용해, adapter trimming을 진행하였다. 
++ TrimGalore 0.6.6 version을 이용해, adapter trimming을 진행하였다.
+
+||Total Read|Filtered Read|Total basepairs|Filtered basepairs|
+|-|-|-|-|-|
+|sample1_1|36,675,862|36,675,862|3,704,262,062|3,679,353,873(99.3%)|
+|sample1_2|36,675,862|36,675,862|3,704,262,062|3,672,750,272(99.1%)|
+|sample2_1|37,414,748|37,414,748|3,778,889,548|3,752,045,586(99.3%)|
+|sample2_2|37,414,748|37,414,748|3,778,889,548|3,745,527,653(99.1%)|
 
 ## 4. HISAT2
 + GCF_000002035.6_GRCz11.genomic.gff을 대상으로 hisat-build를 통해서 indexing을 했다. 
