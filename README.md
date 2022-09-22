@@ -35,13 +35,13 @@ hisat2 --max-intronlen 50000 -p 24 -x index -1 1_1_val_1.fq -2 1_2_val_2.fq 2> s
 
 ![plot_zoom_png](https://user-images.githubusercontent.com/97942772/191666472-dec46c5f-510f-4efa-b40a-48e6df9eb2b3.png)
 
-+ Sample1의 RPKM값을 X축 Sample2의 RPKM값을 Y축으로 설정하고, Scatter plot을 통해 나타냈다. Sample 1,2 모두 RPCM의 최소값은 10^-3의 값이고, 최대값은 10^4의 값으로, 데이터의 범위는 큰 반면, median은 sample1, sample2 각각 3.78, 3.97으로 낮았다. 이에 3rd Quater값인 14.10와 가까운 15까지 나타냈다.
+  + Sample1의 RPKM값을 X축 Sample2의 RPKM값을 Y축으로 설정하고, Scatter plot을 통해 나타냈다. Sample 1,2 모두 RPCM의 최소값은 10^-3의 값이고, 최대값은 10^4의 값으로, 데이터의 범위는 큰 반면, median은 sample1, sample2 각각 3.78, 3.97으로 낮았다. 이에 3rd Quater값인 14.10와 가까운 15까지 나타냈다.
 
 ![plot (1)](https://user-images.githubusercontent.com/97942772/191673140-fd88bfda-8c53-4901-8f80-edec5e3739a8.png)
 
-+ Sample1, Sampe2의 RPKM값의 로그 값을 취한 그래프이다.
+  + Sample1, Sampe2의 RPKM값의 로그 값을 취한 그래프이다.
 
 ![plot](https://user-images.githubusercontent.com/97942772/191673215-769d81a5-7791-42e5-8b4b-cfab80eb65d6.png)
 
-+ MA plot으로, X축에 Sample 1과 2의 평균값의 로그(Log10), Y축에 LogFC(Log2)으로 설정했다. 
+  + MA plot으로, X축에 Sample 1과 2의 평균값의 로그(Log10), Y축에 LogFC(Log2)으로 설정했다. 
 
