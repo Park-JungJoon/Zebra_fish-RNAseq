@@ -43,5 +43,5 @@ hisat2 --max-intronlen 50000 -p 24 -x index -1 1_1_val_1.fq -2 1_2_val_2.fq 2> s
 
 ![plot](https://user-images.githubusercontent.com/97942772/191673215-769d81a5-7791-42e5-8b4b-cfab80eb65d6.png)
 
-+ X축에 Sample 1과 2의 평균값의 로그(Log10), Y축에 LogFC(Log2)으로 설정했다. 
++ MA plot으로, X축에 Sample 1과 2의 평균값의 로그(Log10), Y축에 LogFC(Log2)으로 설정했다. 
 
