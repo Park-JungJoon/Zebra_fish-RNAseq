@@ -58,16 +58,16 @@ hisat2 --max-intronlen 50000 -p 24 -x index -1 1_1_val_1.fq -2 1_2_val_2.fq 2> s
 + Strongly downregulate는 sample 2 RPKM 값이 sample 1에 비해 1/8 이하인 경우를 나타내고, Downregulate는 1/8-1/4,  Slightly downregulate는 1/4 - 1/2이다.
 + NA는 뚜렷한 발현량 차이가 없는(sample간 발현량 차이가 0.5-2인 경우를 나타낸다.)
 
-|DEG level|count|
-|-|-|
-|Total gene|24,952|
-|Strongly upregulated|79|
-|Upregulated|225|
-|Slightly upregulated|1,091|
-|Slightly downregulated|484|
-|Downregulated|90|
-|Strongly downregulated|17|
-|NA|22,966|
+   |DEG level|count|
+   |-|-|
+   |Total gene|24,952|
+   |Strongly upregulated|79|
+   |Upregulated|225|
+   |Slightly upregulated|1,091|
+   |Slightly downregulated|484|
+   |Downregulated|90|
+   |Strongly downregulated|17|
+   |NA|22,966|
 
 
 ### 6-1. Distribution of RPKM
