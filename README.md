@@ -47,16 +47,24 @@ hisat2 --max-intronlen 50000 -p 24 -x index -1 1_1_val_1.fq -2 1_2_val_2.fq 2> s
 
 ## 6. Data Statistics
 + R을 이용한 통계를 내었다. 
++ Strongly upregulate는 sample 2 RPKM 값이 sample 1에 비해 8배 이상 큰 경우를 나타내고, Upregulate는 4배 - 8배, Slightly upregulate는 2배 - 4배이다.   
++ Strongly downregulate는 sample 2 RPKM 값이 sample 1에 비해 1/8 이하인 경우를 나타내고, Downregulate는 1/8-1/4,  Slightly downregulate는 1/4 - 1/2이다.
 
-![plot_zoom_png](https://user-images.githubusercontent.com/97942772/191666472-dec46c5f-510f-4efa-b40a-48e6df9eb2b3.png)
+![Rplot](https://user-images.githubusercontent.com/97942772/191928772-e3fbff45-a651-46bc-a650-5a92ef28a7ed.png)
 
-   + Sample1의 RPKM값을 X축 Sample2의 RPKM값을 Y축으로 설정하고, Scatter plot을 통해 나타냈다. Sample 1,2 모두 RPCM의 최소값은 10^-3의 값이고, 최대값은 10^4의 값으로, 데이터의 범위는 큰 반면, median은 sample1, sample2 각각 3.78, 3.97으로 낮았다. 이에 3rd Quater값인 14.10와 가까운 15까지 나타냈다.
 
-![plot (1)](https://user-images.githubusercontent.com/97942772/191673140-fd88bfda-8c53-4901-8f80-edec5e3739a8.png)
+   + Sample1의 RPKM값을 X축 Sample2의 RPKM값을 Y축으로 설정하고, Scatter plot을 통해 나타냈다. 
+   + Sample 1 RPCM의 최소값은 0.003이고, Sample 2 RPKM의 최소값은 0.001이다.
+   + Sample 1 RPCM의 최대값은 16,634이고, Sample 2 RPKM의 최대값은 18,169이다. 
+   + 데이터의 범위는 큰 반면, median은 sample1, sample2 각각 3.78, 3.97으로 낮았다. 이에 3rd Quater값인 14.10와 가까운 15까지 나타냈다.
+   + Strongly upregulate는 sample 2 RPKM 값이 sample 1에 비해 8배 이상 큰 경우를 나타내고, Upregulate는 4배 - 8배, Slightly upregulate는 2배 - 4배이다.   
+   + Strongly downregulate는 sample 2 RPKM 값이 sample 1에 비해 1/8 이하인 경우를 나타내고, Downregulate는 1/8-1/4,  Slightly downregulate는 1/4 - 1/2이다.
+ 
+![logrpkm](https://user-images.githubusercontent.com/97942772/191929564-0dab38de-474f-4c27-b4d7-c04292f2bde7.png)
 
    + Sample1, Sampe2의 RPKM값의 로그 값을 취한 그래프이다.
 
-![plot](https://user-images.githubusercontent.com/97942772/191673215-769d81a5-7791-42e5-8b4b-cfab80eb65d6.png)
+![maplot](https://user-images.githubusercontent.com/97942772/191929727-6f54d87e-8a9c-4ba7-9d2d-da106e042469.png)
 
    + MA plot으로, X축에 Sample 1과 2의 평균값의 로그(Log10), Y축에 LogFC(Log2)으로 설정했다. 
 
