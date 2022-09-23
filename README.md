@@ -3,8 +3,8 @@
 + Zebra fish에 1,4-Naphthoquinone을 처리하고, Differentially Expressed Genes (DEGs)를 확인한다.
 
 ## 2. Data Collecting
-+ 충남대학교 생명시스템 과학대학 김철희 교수님 연구실 Ph.d student PUSPANJALI SWAIN의 RNA데이터를 [Marcrogen, Inc.](https://www.macrogen.com/ko/main)에서 시퀀싱한 데이터를 사용했다.
-+ 총 데이터의 sample은 2개로, sample 1은 Control로, 10hpf, bud stage의 untreated embryo에서 추출한 RNA이고, sample 2는 0.5uM의 1-4-Naphthoquinone을 6hpf에 처리한 후, 10hpf, bud stage의 RNA이다.
++ 충남대학교 생명시스템 과학대학 김철희 교수님 연구실 Ph.d student PUSPANJALI SWAIN의 RNA를 [Marcrogen, Inc.](https://www.macrogen.com/ko/main)에서 시퀀싱한 데이터를 사용했다.
++ 총 데이터의 sample은 2개로, sample 1은 Control로, 10hpf(bud stage)의 untreated embryo에서 추출한 RNA이고, sample 2는 0.5uM의 1-4-Naphthoquinone을 6hpf에 처리한 후, 10hpf (bud stage)의 RNA이다.
 
 |Sample|Category|Treat|Extract point|
 |-|-|-|-|
