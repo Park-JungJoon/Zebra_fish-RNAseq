@@ -3,7 +3,7 @@
 + Zebra fish에 1,4-Naphthoquinone을 처리하고, Differentially Expressed Genes (DEGs)를 확인한다.
 
 ## 2. Data Collecting
-+ 충남대학교 생명시스템 과학대학 김철희 교수님 연구실 Ph.d student PUSPANJALI SWAIN의 RNA데이터를 [Marcrogen, Inc.]에서 시퀀싱한 데이터를 사용했다.
++ 충남대학교 생명시스템 과학대학 김철희 교수님 연구실 Ph.d student PUSPANJALI SWAIN의 RNA데이터를 [Marcrogen, Inc.](https://www.macrogen.com/ko/main)에서 시퀀싱한 데이터를 사용했다.
 + 총 데이터의 sample은 2개로, sample 1은 Control로, 10hpf, bud stage의 untreated embryo에서 추출한 RNA이고, sample 2는 0.5uM의 1-4-Naphthoquinone을 6hpf에 처리한 후, 10hpf, bud stage의 RNA이다.
 
 |Sample|Category|Treat|Extract point|
@@ -26,17 +26,24 @@
 
 ## 4. HISAT2
 + GCF_000002035.6_GRCz11.genomic.gff을 대상으로 hisat-build를 통해서 indexing을 했다. 
-+ Indexing이 끝난후, trimming이 끝난 데이터를 대상으로 HISAT2를 통한 allignment를 했다. 아래는 running option.
++ Indexing이 끝난후, trimming이 끝난 데이터를 대상으로 HISAT2를 통한 alignment를 했다. 아래는 running option.
 <pre>
 <code>
 hisat2 --max-intronlen 50000 -p 24 -x index -1 1_1_val_1.fq -2 1_2_val_2.fq 2> sample1.log | samtools view -@ 24 -bSF4 - | samtools sort -@ 24 - -o sample1.bam
 </code>
 </pre>
 + 결과물을 bam파일로 저장했다. 
++ HISAT2 alignment의 통계는 아래와 같다.
+
+
+||Total reads|Non alignment reads(%)|Once aligned reads(%)|Multiple aligned reads(%)|Overall alignment rate|
+|-|-|-|-|-|-|
+|Sample1|36,643,192|7,470,036 (20.39%)|23,123,139 (63.10%)|6,050,017 (16.51%)|88.78%|
+|Sample2|37,384,688|7,589,304 (20.30%)|23,244,199 (62.18%)|6,551,185 (17.52%)|88.20%|
 
 ## 5. Data Handling
 + 화학적 처리를 한 Sample의 repeat이 없어서 edgeR 패키지를 통한 통계 분석이 불가능해, R 및 Python의 코드를 통해 대략적인 분포를 나타냈다. 
-+ R 코드와 Python 코드를 통해, bam 파일로 부터 각 유전자의 발현량, RPKM, LogFC값을 표기하는 [sorted_filtered_rpkm_foldchange.tsv](https://github.com/Park-JungJoon/Zebra_fish-RNAseq/blob/main/Supplementary_data/sorted_filtered_rpkm_foldchange.tsv) 파일을 만들었다. Protein coding gene을 제외한, tRNA,rRNA,miRNA,lncRNA 등의 gene은 모두 제거되었다.
++ R 코드와 Python 코드를 통해, bam 파일로 부터 각 유전자의 발현량, RPKM, LogFC값을 표기하는 [sorted_filtered_rpkm_foldchange.tsv](https://github.com/Park-JungJoon/Zebra_fish-RNAseq/blob/main/Supplementary_data/sorted_filtered_rpkm_foldchange.tsv) 파일을 만들었다. Protein coding gene을 제외한, tRNA,rRNA,miRNA,lncRNA 등의 gene은 모두 제거되었다. Sample 1,2 두 샘플 중 하나라도 발현량이 0인 gene 또한 제외하였다.
 
 ||Mean|Min|Max|Median|1st Qu.|3rd Qu.|
 |-|-|-|-|-|-|-|
