@@ -4,7 +4,7 @@
 
 ## 2. Data Collecting
 + 충남대학교 생명시스템 과학대학 김철희 교수님 연구실 Ph.d student PUSPANJALI SWAIN의 RNA를 [Marcrogen, Inc.](https://www.macrogen.com/ko/main)에서 시퀀싱한 데이터를 사용했다.
-+ 총 데이터의 sample은 2개로, sample 1은 Control로, 10hpf(bud stage)의 untreated embryo에서 추출한 RNA이고, sample 2는 0.5uM의 1-4-Naphthoquinone을 6hpf에 처리한 후, 10hpf (bud stage)의 RNA이다.
++ 총 데이터의 sample은 2개로, sample 1은 Control로, 10hpf (bud stage)의 untreated embryo에서 추출한 RNA이고, sample 2는 0.5uM의 1-4-Naphthoquinone을 6hpf에 처리한 후, 10hpf (bud stage)의 RNA이다.
 
 |Sample|Category|Treat|Extract point|
 |-|-|-|-|
@@ -32,7 +32,6 @@
 hisat2 --max-intronlen 50000 -p 24 -x index -1 1_1_val_1.fq -2 1_2_val_2.fq 2> sample1.log | samtools view -@ 24 -bSF4 - | samtools sort -@ 24 - -o sample1.bam
 </code>
 </pre>
-+ 결과물을 bam파일로 저장했다. 
 + HISAT2 alignment의 통계는 아래와 같다.
 
 
@@ -44,18 +43,32 @@ hisat2 --max-intronlen 50000 -p 24 -x index -1 1_1_val_1.fq -2 1_2_val_2.fq 2> s
 ## 5. Data Handling
 + 화학적 처리를 한 Sample의 repeat이 없어서 edgeR 패키지를 통한 통계 분석이 불가능해, R 및 Python의 코드를 통해 대략적인 분포를 나타냈다. 
 + R 코드와 Python 코드를 통해, bam 파일로 부터 각 유전자의 발현량, RPKM, LogFC값을 표기하는 [sorted_filtered_rpkm_foldchange.tsv](https://github.com/Park-JungJoon/Zebra_fish-RNAseq/blob/main/Supplementary_data/sorted_filtered_rpkm_foldchange.tsv) 파일을 만들었다. Protein coding gene을 제외한, tRNA,rRNA,miRNA,lncRNA 등의 gene은 모두 제거되었다. Sample 1,2 두 샘플 중 하나라도 발현량이 0인 gene 또한 제외하였다.
++ 아래 표는 sample 1,2에서의 유전자 발현량의 기본적인 통계를 나타냈다.
 
 ||Mean|Min|Max|Median|1st Qu.|3rd Qu.|
 |-|-|-|-|-|-|-|
-|Sample1|2,222|1|598,059|440|83|1,813|
-|Sample2|2,193|1|489,505|460|94|1,808|
-|Sample1_RPKM|25.92|0.003|16,634|3.78|0.86|13.86|
-|Sample2_RPKM|26.51|0.001|18,169|3.97|0.96|14.10|
+|Sample1 gene expression count|2,222|1|598,059|440|83|1,813|
+|Sample2 gene expression count|2,193|1|489,505|460|94|1,808|
+|Sample1 RPKM|25.92|0.003|16,634|3.78|0.86|13.86|
+|Sample2 RPKM|26.51|0.001|18,169|3.97|0.96|14.10|
 
 ## 6. Data Statistics
 + R을 이용한 통계를 내었다. 
 + Strongly upregulate는 sample 2 RPKM 값이 sample 1에 비해 8배 이상 큰 경우를 나타내고, Upregulate는 4배 - 8배, Slightly upregulate는 2배 - 4배이다.   
 + Strongly downregulate는 sample 2 RPKM 값이 sample 1에 비해 1/8 이하인 경우를 나타내고, Downregulate는 1/8-1/4,  Slightly downregulate는 1/4 - 1/2이다.
++ NA는 뚜렷한 발현량 차이가 없는(sample간 발현량 차이가 0.5-2인 경우를 나타낸다.)
+
+|DEG level|count|
+|-|-|
+|Total gene|24,952|
+|Strongly upregulated|79|
+|Upregulated|225|
+|Slightly upregulated|1,091|
+|Slightly downregulated|484|
+|Downregulated|90|
+|Strongly downregulated|17|
+|NA|22,966|
+
 
 ### 6-1. Distribution of RPKM
 ![Rplot](https://user-images.githubusercontent.com/97942772/191928772-e3fbff45-a651-46bc-a650-5a92ef28a7ed.png)
