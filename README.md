@@ -50,6 +50,7 @@ hisat2 --max-intronlen 50000 -p 24 -x index -1 1_1_val_1.fq -2 1_2_val_2.fq 2> s
 + Strongly upregulate는 sample 2 RPKM 값이 sample 1에 비해 8배 이상 큰 경우를 나타내고, Upregulate는 4배 - 8배, Slightly upregulate는 2배 - 4배이다.   
 + Strongly downregulate는 sample 2 RPKM 값이 sample 1에 비해 1/8 이하인 경우를 나타내고, Downregulate는 1/8-1/4,  Slightly downregulate는 1/4 - 1/2이다.
 
+### 6-1. Distribution of RPKM
 ![Rplot](https://user-images.githubusercontent.com/97942772/191928772-e3fbff45-a651-46bc-a650-5a92ef28a7ed.png)
 
 
@@ -60,11 +61,15 @@ hisat2 --max-intronlen 50000 -p 24 -x index -1 1_1_val_1.fq -2 1_2_val_2.fq 2> s
    + Strongly upregulate는 sample 2 RPKM 값이 sample 1에 비해 8배 이상 큰 경우를 나타내고, Upregulate는 4배 - 8배, Slightly upregulate는 2배 - 4배이다.   
    + Strongly downregulate는 sample 2 RPKM 값이 sample 1에 비해 1/8 이하인 경우를 나타내고, Downregulate는 1/8-1/4,  Slightly downregulate는 1/4 - 1/2이다.
  
+### 6-2. Distribution of Log RPKM
 ![logrpkm](https://user-images.githubusercontent.com/97942772/191929564-0dab38de-474f-4c27-b4d7-c04292f2bde7.png)
 
-   + Sample1, Sampe2의 RPKM값의 로그 값을 취한 그래프이다.
+   + Sample1, Sampe2의 RPKM값의 로그 값을 취한 그래프이다. Pseudocount를 적용했다.
 
+
+### 6-3. MA plot
 ![maplot](https://user-images.githubusercontent.com/97942772/191929727-6f54d87e-8a9c-4ba7-9d2d-da106e042469.png)
 
-   + MA plot으로, X축에 Sample 1과 2의 평균값의 로그(Log10), Y축에 LogFC(Log2)으로 설정했다. 
+   + MA plot으로, X축에 Sample 1과 2의 평균값의 로그(Log10), Y축에 LogFC(Log2)으로 설정했다. Pseudocount를 적용했다.
+
 
