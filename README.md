@@ -85,7 +85,7 @@ hisat2 --max-intronlen 50000 -p 24 -x index -1 1_1_val_1.fq -2 1_2_val_2.fq 2> s
 
    + Sample1, Sampe2의 RPKM값의 로그 값을 취한 그래프이다. 
    + Pseudocount를 적용했다.
-      * RPKM값이 1 이하일 경우, Log RPKM 값이 음수가 나오며, 그래프를 통한 시각적 인식의 어려움이 있어, sample 1, sample 2의 Log RPKM값에 1을 더해 계산했다. 
+      * RPKM값이 1 이하일 경우, Log RPKM 값이 음수가 나오며, 그래프를 통한 시각적 인식의 어려움이 있어, sample 1, sample 2의 RPKM값에 1을 더한 후 Log 값을 계산했다. 
 
 
 ### 6-3. MA plot
