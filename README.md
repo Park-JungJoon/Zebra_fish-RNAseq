@@ -42,7 +42,8 @@ hisat2 --max-intronlen 50000 -p 24 -x index -1 1_1_val_1.fq -2 1_2_val_2.fq 2> s
 
 ## 5. Data Handling
 + 화학적 처리를 한 Sample의 repeat이 없어서 edgeR 패키지를 통한 통계 분석이 불가능해, R 및 Python의 코드를 통해 대략적인 분포를 나타냈다. 
-+ R 코드와 Python 코드를 통해, bam 파일로 부터 각 유전자의 발현량, RPKM, LogFC값을 표기하는 [sorted_filtered_rpkm_foldchange.tsv](https://github.com/Park-JungJoon/Zebra_fish-RNAseq/blob/main/Supplementary_data/sorted_filtered_rpkm_foldchange.tsv) 파일을 만들었다. Protein coding gene을 제외한, tRNA,rRNA,miRNA,lncRNA 등의 non-coding gene은 모두 제거되었다. 또한 Sample 1,2 두 샘플 중 하나라도 발현량이 0인 gene 제외하였다.
++ R 코드와 Python 코드를 통해, bam 파일로 부터 각 유전자의 발현량, RPKM, LogFC값을 표기하는 [sorted_filtered_rpkm_foldchange.tsv](https://github.com/Park-JungJoon/Zebra_fish-RNAseq/blob/main/Supplementary_data/sorted_filtered_rpkm_foldchange.tsv) 파일을 만들었다. Protein coding gene을 제외한, tRNA,rRNA,miRNA,lncRNA 등의 non-coding gene은 모두 제거되었다. 
++ Sample 1,2 두 샘플 중 하나라도 발현량이 0인 gene 제외하였다.
 + 아래 표는 sample 1,2에서의 유전자 발현량의 기본적인 통계를 나타냈다.
 
    ||Mean|Min|Max|Median|1st Qu.|3rd Qu.|
