@@ -74,7 +74,7 @@ hisat2 --max-intronlen 50000 -p 24 -x index -1 1_1_val_1.fq -2 1_2_val_2.fq 2> s
    + Sample1의 RPKM값을 X축 Sample2의 RPKM값을 Y축으로 설정하고, Scatter plot을 통해 나타냈다. 
    + Sample 1 RPCM의 최소값은 0.003이고, Sample 2 RPKM의 최소값은 0.001이다.
    + Sample 1 RPCM의 최대값은 16,634이고, Sample 2 RPKM의 최대값은 18,169이다. 
-   + 데이터의 범위는 큰 반면, median은 sample1, sample2 각각 3.78, 3.97으로 낮았다. 이에 3rd Quater값인 14.10와 가까운 15까지 나타냈다.
+   + 데이터의 범위는 큰 반면, median은 sample1, sample2 각각 3.78, 3.97으로 낮았다. 이에 ample 2의 3rd Quater값인 X,Y축을 14.10와 가까운 15까지 나타냈다.
    
  
 ### 6-2. Distribution of Log RPKM
