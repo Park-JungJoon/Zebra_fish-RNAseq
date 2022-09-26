@@ -1,6 +1,6 @@
 # Zebra_fish-RNAseq
 ## 1. Purpose
-+ Zebra fish에 1,4-Naphthoquinone을 처리하고, Differentially Expressed Genes (DEGs)를 확인하고, 기존 연구와 비교해 1,4-Naphthoquinone에 의해 유발되는 환경성 질환과 그 biomarker 탐색을 목적으로 한다. 
++ Zebra fish에 1,4-Naphthoquinone을 처리하고, Differentially Expressed Genes (DEGs)를 확인하고, 기존 연구와 비교해 1,4-Naphthoquinone에 의해 유발되는 환경성 질환과 그  biomarker 탐색을 목적으로 한다. 
 
 ## 2. Data Collecting
 + 충남대학교 생명시스템 과학대학 김철희 교수님 연구실 Ph.d student PUSPANJALI SWAIN의 RNA를 [Marcrogen, Inc.](https://www.macrogen.com/ko/main)에서 시퀀싱한 데이터를 사용했다.
