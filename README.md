@@ -1,9 +1,9 @@
-# Zebrafish-RNAseq
+# Zebrafish RNA-seq analysis
 ## 1. Purpose
 + Zebrafish embryo에 1,4-Naphthoquinone (1,4-NQ)를 처리한 후 control group과 비교해 Differentially Expressed Genes (DEGs)를 확인함.
 + 기존 연구 결과를 확인해 1,4-NQ 관련 biomarker 유전자들이 DEG에 포함되어 있는지 탐색함. 
 
-## 2. Data Collecting
+## 2. Data collecting
 + 실험 및 RNA 추출: 충남대학교 생명시스템과학대학 김철희 교수님 연구실 박사과정 PUSPANJALI SWAIN 연구원
 + Sequencing: [Marcrogen, Inc.](https://www.macrogen.com/ko/main)
 + 전체 sample은 2개로 sample 1은 아무 물질도 처리하지 않은 control group이고, sample 2는 0.5μM의 1,4-NQ를 6hpf 시점에서 처리한 group이다.
@@ -94,4 +94,13 @@
    + X축을 Sample 1과 2의 RPKM 평균의 로그 값(Log10, pseudocount 적용)으로, Y축을 LogFC(Log2)로 설정함.
 
 ## 6. Result
-+ DEG 분석에서 LogFC의 절댓값이 2 이상인 유전자들 중, 두 샘플의 RPKM 값 모두 1이 넘는 유전자만 필터링함.
++ DEG 분석에서 LogFC의 절댓값이 2 이상이고, 두 샘플의 RPKM 값 모두 1이 넘는 유전자만 필터링함.
++ 기준을 통과한 유전자들의 통계는 아래와 같음.
+
+   | DEG category | Count
+   | - | -
+   | Strongly upregulated | 9
+   | Upregulated | 25
+   | Downregulated | 2
+
++
