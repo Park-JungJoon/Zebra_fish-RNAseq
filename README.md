@@ -99,7 +99,7 @@
 
    | DEG category | Count
    | - | -
-   | Total filtered genes | - | 36
+   | Total filtered genes | 36
    | Strongly upregulated | 9
    | Upregulated | 25
    | Downregulated | 2
