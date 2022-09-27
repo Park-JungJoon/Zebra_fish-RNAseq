@@ -1,20 +1,32 @@
-# Zebra_fish-RNAseq
+# Zebrafish-RNAseq
 ## 1. Purpose
-+ Zebra fish에 1,4-Naphthoquinone을 처리하고, Differentially Expressed Genes (DEGs)를 확인하고, 기존 연구와 비교해 1,4-Naphthoquinone에 의해 유발되는 환경성 질환과 그  biomarker 탐색을 목적으로 한다. 
++ Zebrafish embryo에 1,4-Naphthoquinone (1,4-NQ)를 처리한 후 control group과 비교해 Differentially Expressed Genes (DEGs)를 확인함.
++ 기존 연구 결과를 확인해 1,4-NQ 관련 biomarker 유전자들이 DEG에 포함되어 있는지 탐색함. 
 
 ## 2. Data Collecting
-+ 충남대학교 생명시스템 과학대학 김철희 교수님 연구실 Ph.d student PUSPANJALI SWAIN의 RNA를 [Marcrogen, Inc.](https://www.macrogen.com/ko/main)에서 시퀀싱한 데이터를 사용했다.
-+ 총 데이터의 sample은 2개로, sample 1은 Control로, 10hpf (bud stage)의 untreated embryo에서 추출한 RNA이고, sample 2는 0.5uM의 1-4-Naphthoquinone을 6hpf에 처리한 후, 10hpf (bud stage)의 RNA이다.
++ 실험 및 RNA 추출: 충남대학교 생명시스템과학대학 김철희 교수님 연구실 박사과정 PUSPANJALI SWAIN 연구원
++ Sequencing: [Marcrogen, Inc.](https://www.macrogen.com/ko/main)
++ 전체 sample은 2개로 sample 1은 아무 물질도 처리하지 않은 control group이고, sample 2는 0.5μM의 1,4-NQ를 6hpf 시점에서 처리한 group이다.
 
-   |Sample|Category|Treat|Extract point|
-   |-|-|-|-|
-   |Sample1|Control|NA|10hpf (bud stage)|
-   |Sample2|Treated|1-4-Naphthoquinone 0.5uM at 6hpf|10hpf (bud stage)|
+   | Sample | Category | Treat | Extract point
+   | - | - | - | -
+   | Sample1 | Control | Untreated | 10hpf (bud stage)
+   | Sample2 | Treated | 1,4-NQ 0.5μM at 6hpf | 10hpf (bud stage)
 
-+ NCBI의 [RefSeq genomes FTP](https://ftp.ncbi.nlm.nih.gov/genomes/refseq/)에서 GCF_000002035.6_GRCz11에 대한 모든 정보를 다운 받고, genomic.gff파일을 주로 사용했다.
-+ GCF_000002035.6_GRCz11의 gene 개수는 47,394이고, gene_biotype이 protein_coding인 gene은 32,730개이다. 
++ Zebrafish reference genome으로는 NCBI의 GRCz11 (RefSeq accession: GCF_000002035.6) genome을 사용함.
 
-## 3. TrimGalore
+   Feature | Statistics
+   | - | -
+   Genome size (bp) | 1,373,454,788
+   Number of chromosomes | 25
+   Number of scaffolds | 1,917
+   Scaffold N50 (bp)| 7,379,053
+   Scaffold L50 | 44
+   GC ratio (%) | 36.5
+   Number of genes | 40,031
+   Number of protein-coding genes | 26,448
+
+## 3. Read adapter trimming & QC
 + TrimGalore 0.6.6 version을 이용해, adapter trimming을 진행하였다.
 
    ||Total Read|Filtered Read|Total basepairs|Filtered basepairs|
@@ -91,4 +103,4 @@ hisat2 --max-intronlen 50000 -p 24 -x index -1 1_1_val_1.fq -2 1_2_val_2.fq 2> s
 
    + MA plot으로, X축에 Sample 1과 2의 평균값의 로그(Log10), Y축에 LogFC(Log2)으로 설정했다. Pseudocount를 적용했다.
 
-## 7. Result 
+## 7. 
