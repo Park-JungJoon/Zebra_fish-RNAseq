@@ -39,12 +39,12 @@
 ## 4. Read alignment
 + NCBI reference genome을 대상으로 QC가 끝난 read를 사용해 HISAT2 (v2.2.1)를 사용해 read alignment를 진행함.
 + Running parameters: --max-intronlen 50000, other parameters default
-+ HISAT2 alignment의 통계는 아래와 같다.
++ Read alignment 결과 통계는 아래와 같음.
 
-   ||Total reads|Non alignment reads(%)|Once aligned reads(%)|Multiple aligned reads(%)|Overall alignment rate|
-   |-|-|-|-|-|-|
-   |Sample1|36,643,192|7,470,036 (20.39%)|23,123,139 (63.10%)|6,050,017 (16.51%)|88.78%|
-   |Sample2|37,384,688|7,589,304 (20.30%)|23,244,199 (62.18%)|6,551,185 (17.52%)|88.20%|
+   | Sample | Total reads | Overall alignment rate
+   | - | - | -
+   | Sample1 | 36,643,192 | 88.78%
+   | Sample2 | 37,384,688 | 88.20%
 
 ## 5. Data Handling
 + 화학적 처리를 한 Sample의 repeat이 없어서 edgeR 패키지를 통한 통계 분석이 불가능해, R 및 Python의 코드를 통해 대략적인 분포를 나타냈다. 
