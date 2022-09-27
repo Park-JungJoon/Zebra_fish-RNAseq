@@ -105,3 +105,4 @@
 
 + Strongly upregulated group에 포함된 hsp70.3, hsp70.1, hsp90aa1.2, dnaja (hsp40) 유전자가 human carcinoma A431 cell에서 1,4-NQ 처리 시 발현이 증가한다는 [연구 결과](https://www.sciencedirect.com/science/article/pii/S0891584916311492)가 있음.
 + Strongly upregulated group의 나머지 유전자인 [LOC103909982](https://www.ncbi.nlm.nih.gov/gene/103909982), pdcd4b-2, pdcd4b, [si:dkey-204l11.1](https://www.ncbi.nlm.nih.gov/gene/100006301), bbc3는 programmed cell death 또는 apoptosis 관련 유전자로 확인됨.
++ 또한 upregulated group에서도 heat shock protein (HSP) 관련 유전자들인 dnajb1b, ahsa1a, dnajb2, hspa4a 등이 확인됨.
