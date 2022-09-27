@@ -37,14 +37,9 @@
    | Sample2_2 | 37,414,748 | 37,414,748 | 3,778,889,548 | 3,745,527,653 (99.1%)
 
 ## 4. Read alignment
-+ NCBI reference genome을 대상으로 QC가 끝난 read를 사용해 HISAT2를 통한 alignment를 했다. 아래는 running option.
-<pre>
-<code>
-hisat2 --max-intronlen 50000 -p 24 -x index -1 1_1_val_1.fq -2 1_2_val_2.fq 2> sample1.log | samtools view -@ 24 -bSF4 - | samtools sort -@ 24 - -o sample1.bam
-</code>
-</pre>
++ NCBI reference genome을 대상으로 QC가 끝난 read를 사용해 HISAT2 (v2.2.1)를 사용해 read alignment를 진행함.
++ Running parameters: --max-intronlen 50000, other parameters default
 + HISAT2 alignment의 통계는 아래와 같다.
-
 
    ||Total reads|Non alignment reads(%)|Once aligned reads(%)|Multiple aligned reads(%)|Overall alignment rate|
    |-|-|-|-|-|-|
@@ -78,7 +73,6 @@ hisat2 --max-intronlen 50000 -p 24 -x index -1 1_1_val_1.fq -2 1_2_val_2.fq 2> s
    |Strongly downregulated|1/8배 이하|17|
    |NA|1/2배 이상, 2배 이하|22,966|
 
-
 ### 6-1. Distribution of RPKM
 ![Rplot](https://user-images.githubusercontent.com/97942772/191928772-e3fbff45-a651-46bc-a650-5a92ef28a7ed.png)
 
@@ -86,7 +80,6 @@ hisat2 --max-intronlen 50000 -p 24 -x index -1 1_1_val_1.fq -2 1_2_val_2.fq 2> s
    + Sample 1 RPCM의 최소값은 0.003이고, Sample 2 RPKM의 최소값은 0.001이다.
    + Sample 1 RPCM의 최대값은 16,634이고, Sample 2 RPKM의 최대값은 18,169이다. 
    + 데이터의 범위는 큰 반면, median은 sample1, sample2 각각 3.78, 3.97으로 낮았다. 이에 sample 2의 3rd Quater값인 X,Y축을 14.10와 가장 가까운 정수, 14까지 나타냈다.
-   
  
 ### 6-2. Distribution of Log RPKM
 ![logrpkm](https://user-images.githubusercontent.com/97942772/191929564-0dab38de-474f-4c27-b4d7-c04292f2bde7.png)
@@ -94,7 +87,6 @@ hisat2 --max-intronlen 50000 -p 24 -x index -1 1_1_val_1.fq -2 1_2_val_2.fq 2> s
    + Sample1, Sampe2의 RPKM값의 로그 값을 취한 그래프이다. 
    + Pseudocount를 적용했다.
       * RPKM값이 1 이하일 경우, Log RPKM 값이 음수가 나오며, 그래프를 통한 시각적 인식의 어려움이 있어, sample 1, sample 2의 RPKM값에 1을 더한 후 Log 값을 계산했다. 
-
 
 ### 6-3. MA plot
 ![maplot](https://user-images.githubusercontent.com/97942772/191929727-6f54d87e-8a9c-4ba7-9d2d-da106e042469.png)
