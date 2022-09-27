@@ -27,18 +27,17 @@
    Number of protein-coding genes | 26,448
 
 ## 3. Read adapter trimming & QC
-+ TrimGalore (v0.6.6)를 이용해, read adapter trimming과 QC를 진행함.
++ TrimGalore (v0.6.6)를 사용해, read의 adapter trimming과 QC를 진행함.
 
-   ||Total Read|Filtered Read|Total basepairs|Filtered basepairs|
-   |-|-|-|-|-|
-   |sample1_1|36,675,862|36,675,862|3,704,262,062|3,679,353,873(99.3%)|
-   |sample1_2|36,675,862|36,675,862|3,704,262,062|3,672,750,272(99.1%)|
-   |sample2_1|37,414,748|37,414,748|3,778,889,548|3,752,045,586(99.3%)|
-   |sample2_2|37,414,748|37,414,748|3,778,889,548|3,745,527,653(99.1%)|
+   | Read | Total Read | Filtered Read | Total basepairs | Filtered basepairs
+   | - | - | - | - | -
+   | Sample1_1 | 36,675,862 | 36,675,862 | 3,704,262,062 | 3,679,353,873 (99.3%)
+   | Sample1_2 | 36,675,862 | 36,675,862 | 3,704,262,062 | 3,672,750,272 (99.1%)
+   | Sample2_1 | 37,414,748 | 37,414,748 | 3,778,889,548 | 3,752,045,586 (99.3%)
+   | Sample2_2 | 37,414,748 | 37,414,748 | 3,778,889,548 | 3,745,527,653 (99.1%)
 
-## 4. HISAT2
-+ GCF_000002035.6_GRCz11.genomic.gff을 대상으로 hisat-build를 통해서 indexing을 했다. 
-+ Indexing이 끝난후, trimming이 끝난 데이터를 대상으로 HISAT2를 통한 alignment를 했다. 아래는 running option.
+## 4. Read alignment
++ NCBI reference genome을 대상으로 QC가 끝난 read를 사용해 HISAT2를 통한 alignment를 했다. 아래는 running option.
 <pre>
 <code>
 hisat2 --max-intronlen 50000 -p 24 -x index -1 1_1_val_1.fq -2 1_2_val_2.fq 2> sample1.log | samtools view -@ 24 -bSF4 - | samtools sort -@ 24 - -o sample1.bam
