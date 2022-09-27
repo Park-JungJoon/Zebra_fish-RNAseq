@@ -27,7 +27,7 @@
    Number of protein-coding genes | 26,448
 
 ## 3. Read adapter trimming & QC
-+ TrimGalore 0.6.6 version을 이용해, adapter trimming을 진행하였다.
++ TrimGalore (v0.6.6)를 이용해, read adapter trimming과 QC를 진행함.
 
    ||Total Read|Filtered Read|Total basepairs|Filtered basepairs|
    |-|-|-|-|-|
@@ -83,7 +83,6 @@ hisat2 --max-intronlen 50000 -p 24 -x index -1 1_1_val_1.fq -2 1_2_val_2.fq 2> s
 ### 6-1. Distribution of RPKM
 ![Rplot](https://user-images.githubusercontent.com/97942772/191928772-e3fbff45-a651-46bc-a650-5a92ef28a7ed.png)
 
-
    + Sample1의 RPKM값을 X축 Sample2의 RPKM값을 Y축으로 설정하고, Scatter plot을 통해 나타냈다. 
    + Sample 1 RPCM의 최소값은 0.003이고, Sample 2 RPKM의 최소값은 0.001이다.
    + Sample 1 RPCM의 최대값은 16,634이고, Sample 2 RPKM의 최대값은 18,169이다. 
@@ -103,4 +102,4 @@ hisat2 --max-intronlen 50000 -p 24 -x index -1 1_1_val_1.fq -2 1_2_val_2.fq 2> s
 
    + MA plot으로, X축에 Sample 1과 2의 평균값의 로그(Log10), Y축에 LogFC(Log2)으로 설정했다. Pseudocount를 적용했다.
 
-## 7. 
+## 7. Result
