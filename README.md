@@ -91,4 +91,4 @@ hisat2 --max-intronlen 50000 -p 24 -x index -1 1_1_val_1.fq -2 1_2_val_2.fq 2> s
 
    + MA plot으로, X축에 Sample 1과 2의 평균값의 로그(Log10), Y축에 LogFC(Log2)으로 설정했다. Pseudocount를 적용했다.
 
-## 7. 
+## 7. Result 
