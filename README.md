@@ -38,7 +38,7 @@
 
 ## 4. Read alignment
 + NCBI reference genome을 대상으로 QC가 끝난 read를 사용해 HISAT2 (v2.2.1)를 사용해 read alignment를 진행함.
-+ Running parameters: --max-intronlen 50000, other parameters default
++ Used parameters: --max-intronlen 50000, other parameters default value
 + Read alignment 결과 통계는 아래와 같음.
 
    | Sample | Total reads | Overall alignment rate
@@ -104,6 +104,7 @@
    | Upregulated | 25
    | Downregulated | 2
 
-+ Strongly upregulated group에 포함된 hsp70.3, hsp70.1, hsp90aa1.2, dnaja (hsp40) 유전자가 human carcinoma A431 cell에서 1,4-NQ 처리 시 발현이 증가한다는 [연구 결과](https://www.sciencedirect.com/science/article/pii/S0891584916311492)가 있음.
-+ Strongly upregulated group의 나머지 유전자인 [LOC103909982](https://www.ncbi.nlm.nih.gov/gene/103909982), pdcd4b-2, pdcd4b, [si:dkey-204l11.1](https://www.ncbi.nlm.nih.gov/gene/100006301), bbc3는 programmed cell death 또는 apoptosis 관련 유전자로 확인됨.
++ Strongly upregulated group에 포함된 hsp70.3, hsp70.1, hsp90aa1.2, dnaja (hsp40) 유전자가 human carcinoma A431 cell에서 1,4-NQ 처리 시 발현이 증가했다는 [연구 결과](https://www.sciencedirect.com/science/article/pii/S0891584916311492)가 있음.
++ Strongly upregulated group의 나머지 유전자인 [LOC103909982](https://www.ncbi.nlm.nih.gov/gene/103909982), pdcd4b-2, pdcd4b, [si:dkey-204l11.1](https://www.ncbi.nlm.nih.gov/gene/100006301), bbc3는 programmed cell death 또는 apoptosis 관련 유전자로 확인되었고, 1,4-NQ는 electron-accepting capability으로 인해 ROS (reactive oxygen species) 생산을 증가시켜 cell apoptosis를 유발한다는 [연구 결과](https://www.spandidos-publications.com/10.3892/mmr.2019.10500)가 있음.
 + 또한 upregulated group에서도 heat shock protein (HSP) 관련 유전자들인 dnajb1b, ahsa1a, dnajb2, hspa4a 등이 확인됨.
++ 따라서 이번 실험에서 확인한 1,4-NQ 처리 후 발견된 DEG들이 기존의 연구들과 유사한 경향성을 보이고 있다고 할 수 있음.
