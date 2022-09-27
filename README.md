@@ -94,4 +94,4 @@
    + X축을 Sample 1과 2의 RPKM 평균의 로그 값(Log10, pseudocount 적용)으로, Y축을 LogFC(Log2)로 설정함.
 
 ## 6. Result
-+ DEG 분석에서 LogFC의 절대값
++ DEG 분석에서 LogFC의 절댓값이 2 이상인 유전자들 중, 두 샘플의 RPKM 값 모두 1이 넘는 유전자만 필터링함.
