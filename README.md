@@ -48,7 +48,7 @@
 
 ## 5. DEG analysis
 + R의 GenomicAlignments package (v1.30.0)를 사용해 gene 별로 align된 read의 raw count를 구함.
-+ Raw count를 RPKM 방식으로 보정한 후, Log2FC (Fold change) 값을 계산함. [sorted_filtered_rpkm_foldchange.tsv](https://github.com/Park-JungJoon/Zebra_fish-RNAseq/blob/main/Supplementary_data/sorted_filtered_rpkm_foldchange.tsv)
++ Raw count를 RPKM 방식으로 보정한 후, Log2FC (Fold change) 값을 계산함. [rnaseq_zebrafish_github_upload_ver.tsv](https://github.com/Park-JungJoon/Zebra_fish-RNAseq/blob/main/Supplementary_data/rnaseq_zebrafish_github_upload_ver.tsv)
 + Protein-coding gene을 제외한, tRNA, rRNA, miRNA, lncRNA 등의 non-coding gene은 모두 제거함.
 + 두 샘플 중 하나라도 raw count가 0인 gene은 DEG 분석에서 제외함.
 + 아래 표는 Sample 1, 2의 유전자 발현량 기본 통계를 나타냄.
@@ -66,7 +66,7 @@
 
    | DEG category | LogFC (Treat/Control) | Count
    | - | - | -
-   | Total gene | - | 24,952
+   | Total genes | - | 24,952
    | Strongly upregulated | LogFC >= 3 | 79
    | Upregulated | 3 > LogFC >= 2 | 225
    | Slightly upregulated | 2 > LogFC >= 1 | 1,091
@@ -94,11 +94,12 @@
    + X축을 Sample 1과 2의 RPKM 평균의 로그 값(Log10, pseudocount 적용)으로, Y축을 LogFC(Log2)로 설정함.
 
 ## 6. Result
-+ DEG 분석에서 LogFC의 절댓값이 2 이상이고, 두 샘플의 RPKM 값 모두 1이 넘는 유전자만 필터링함.
++ DEG 분석에서 LogFC의 절댓값이 2 이상이고, 두 샘플의 RPKM 값 모두 1이 넘는 유전자만 필터링함. [rnaseq_zebrafish_filtered.tsv.txt](https://github.com/Park-JungJoon/Zebra_fish-RNAseq/blob/main/Supplementary_data/rnaseq_zebrafish_filtered.tsv.txt)
 + 기준을 통과한 유전자들의 통계는 아래와 같음.
 
    | DEG category | Count
    | - | -
+   | Total filtered genes | - | 36
    | Strongly upregulated | 9
    | Upregulated | 25
    | Downregulated | 2
