@@ -102,8 +102,9 @@
 
 
    + Sample1의 RPKM 값을 X축, sample2의 RPKM 값을 Y축으로 설정하고 scatterplot을 통해 분포를 확인함.
+   + Sample 당 3개의 replicate의 평균값을 사용함.
    + RPKM 최대값(1,700 이상)에 비해, median은 sample1, sample2 각각 0.298, 0.308으로 낮음.
-   + 따라서 X, Y축의 범위를 3rd Quarter 값(1.2)보다 큰 5까지만 제한하여 나타냄.
+   + 따라서 X, Y축의 범위를 10까지만 제한하여 나타냄.
  
 ### 5-2. Distribution of Log RPKM
 ![logrpkm_upload](https://user-images.githubusercontent.com/97942772/193222622-7184fb5c-ffdc-46f1-afe6-61224cc560c0.png)
