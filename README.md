@@ -98,7 +98,7 @@
    | Strongly downregulated | -3 >= LogFC | 58
 
 ### 5-1. Distribution of RPKM
-![image](https://user-images.githubusercontent.com/97942772/193217588-f5986f08-e718-4f86-a3ca-0b123da22347.png)
+![image](https://user-images.githubusercontent.com/97942772/193217984-a8bc44bf-3f04-4de8-a934-63815c00d553.png)
 
    + Sample1의 RPKM 값을 X축, sample2의 RPKM 값을 Y축으로 설정하고 scatterplot을 통해 분포를 확인함.
    + RPKM 최대값(1,700 이상)에 비해, median은 sample1, sample2 각각 0.298, 0.308으로 낮음.
