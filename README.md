@@ -98,20 +98,22 @@
    | Strongly downregulated | -3 >= LogFC | 58
 
 ### 5-1. Distribution of RPKM
-![Rplot](https://user-images.githubusercontent.com/97942772/191928772-e3fbff45-a651-46bc-a650-5a92ef28a7ed.png)
+![image](https://user-images.githubusercontent.com/97942772/193217588-f5986f08-e718-4f86-a3ca-0b123da22347.png)
 
    + Sample1의 RPKM 값을 X축, sample2의 RPKM 값을 Y축으로 설정하고 scatterplot을 통해 분포를 확인함.
-   + RPKM 최대값(15,000 이상)에 비해, median은 sample1, sample2 각각 3.78, 3.97으로 낮음.
-   + 따라서 X, Y축의 범위를 3rd Quarter 값인 14까지만 제한하여 나타냄.
+   + RPKM 최대값(1,700 이상)에 비해, median은 sample1, sample2 각각 0.298, 0.308으로 낮음.
+   + 따라서 X, Y축의 범위를 3rd Quarter 값(1.2)보다 큰 5까지만 제한하여 나타냄.
  
 ### 5-2. Distribution of Log RPKM
-![logrpkm](https://user-images.githubusercontent.com/97942772/191929564-0dab38de-474f-4c27-b4d7-c04292f2bde7.png)
+![image](https://user-images.githubusercontent.com/97942772/193217397-6f58e347-2766-4491-8c80-48c644cfdd21.png)
+
 
    + Sample1, sample2 RPKM의 로그 값 분포를 확인함. 
    + RPKM 값이 1 이하일 경우 Log RPKM 값은 음수가 되어 그래프를 통한 시각적 인식에 어려움이 있어 RPKM값에 1의 pseudocount를 더한 후 로그 값을 계산함.
 
 ### 5-3. MA plot
-![maplot](https://user-images.githubusercontent.com/97942772/191929727-6f54d87e-8a9c-4ba7-9d2d-da106e042469.png)
+![image](https://user-images.githubusercontent.com/97942772/193217231-255eebb8-5558-4f7c-a70d-3f8f61e587db.png)
+
 
    + X축을 Sample 1과 2의 RPKM 평균의 로그 값(Log10, pseudocount 적용)으로, Y축을 LogFC(Log2)로 설정함.
 
