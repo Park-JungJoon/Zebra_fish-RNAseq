@@ -25,7 +25,7 @@
    Scaffold L50 | 44
    GC ratio (%) | 36.5
    Number of genes | 40,031
-   Number of protein-coding genes | 26,448
+
 
 ## 3. Read adapter trimming & QC
 + TrimGalore (v0.6.6)를 사용해, read의 adapter trimming과 QC를 진행함.
