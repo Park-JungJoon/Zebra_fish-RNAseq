@@ -8,7 +8,6 @@
 + Sequencing: [Marcrogen, Inc.](https://www.macrogen.com/ko/main)
 + 전체 sample은 2개로 sample 1은 아무 물질도 처리하지 않은 control group이고, sample 2는 0.5μM의 1,4-NQ를 6hpf 시점에서 처리한 group이다.
 
-
    | Sample | Category | Treat | Extract point
    | - | - | - | -
    | Sample1 | Control | Untreated | 10hpf (bud stage)
@@ -26,7 +25,6 @@
    GC ratio (%) | 36.5
    Number of genes | 40,031
 
-
 ## 3. Read adapter trimming & QC
 + TrimGalore (v0.6.6)를 사용해, read의 adapter trimming과 QC를 진행함.
 
@@ -38,7 +36,6 @@
    | Sample2_2 | 37,414,748 | 37,414,748 | 3,778,889,548 | 3,745,527,653 (99.1%)
 
 + QC가 끝난 sample에 대해 sample1, sample2의 read를 무작위하게 3개로 나눠 각 샘플당 3개의 replicate를 만듦.
-
 
 ## 4. Read alignment
 + NCBI reference genome을 대상으로 QC가 끝난 read를 사용해 HISAT2 (v2.2.1)를 사용해 read alignment를 진행함.
@@ -100,7 +97,6 @@
 ### 5-1. Distribution of RPKM
 ![gitupload_rpkm](https://user-images.githubusercontent.com/97942772/193222648-de34e244-8319-4836-aaf2-5d33c1b8c9d5.png)
 
-
    + Sample1의 RPKM 값을 X축, sample2의 RPKM 값을 Y축으로 설정하고 scatterplot을 통해 분포를 확인함.
    + Sample 당 3개의 replicate의 평균값을 사용함.
    + RPKM 최대값(1,700 이상)에 비해, median은 sample1, sample2 각각 0.298, 0.308으로 낮음.
@@ -109,21 +105,16 @@
 ### 5-2. Distribution of Log RPKM
 ![logrpkm_upload](https://user-images.githubusercontent.com/97942772/193222622-7184fb5c-ffdc-46f1-afe6-61224cc560c0.png)
 
-
-
    + Sample1, sample2 RPKM의 로그 값 분포를 확인함. 
    + RPKM 값이 1 이하일 경우 Log RPKM 값은 음수가 되어 그래프를 통한 시각적 인식에 어려움이 있어 RPKM값에 1의 pseudocount를 더한 후 로그 값을 계산함.
 
 ### 5-3. MA plot
 ![maplot_upload](https://user-images.githubusercontent.com/97942772/193222596-ac88e06d-9613-4a62-8266-0c323623b344.png)
 
-
-
    + X축을 Sample 1과 2의 RPKM 평균의 로그 값(Log10, pseudocount 적용)으로, Y축을 LogFC(Log2)로 설정함.
 
 ### 5-4 Heatmap 
 ![heatmapfortriplate](https://user-images.githubusercontent.com/97942772/193222696-c1a6ee6f-2b77-423c-beaf-8f7fe60aa0ba.png)
-
 
 ## 6. Result
 + DEG 분석에서 LogFC의 절댓값이 2 이상이고, 두 샘플의 RPKM 값 모두 1이 넘는 유전자만 필터링함. [rnaseq_zebrafish_filtered.tsv.txt](https://github.com/Park-JungJoon/Zebra_fish-RNAseq/blob/main/Supplementary_data/rnaseq_zebrafish_filtered.tsv.txt)
@@ -133,3 +124,4 @@
 + Strongly upregulated group의 나머지 유전자인 [LOC103909982](https://www.ncbi.nlm.nih.gov/gene/103909982), pdcd4b-2, pdcd4b, [si:dkey-204l11.1](https://www.ncbi.nlm.nih.gov/gene/100006301), bbc3는 programmed cell death 또는 apoptosis 관련 유전자로 확인되었고, 1,4-NQ는 electron-accepting capability으로 인해 ROS (reactive oxygen species) 생산을 증가시켜 cell apoptosis를 유발한다는 [연구 결과](https://www.spandidos-publications.com/10.3892/mmr.2019.10500)가 있음.
 + 또한 upregulated group에서도 heat shock protein (HSP) 관련 유전자들인 dnajb1b, ahsa1a, dnajb2, hspa4a 등이 확인됨.
 + 따라서 이번 실험에서 확인한 1,4-NQ 처리 후 발견된 DEG들이 기존의 연구들과 유사한 경향성을 보이고 있다고 할 수 있음.
+
