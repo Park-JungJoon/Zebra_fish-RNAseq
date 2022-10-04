@@ -117,12 +117,12 @@
 ### 5-4 Heatmap 
 ![heatmapfortriplate](https://user-images.githubusercontent.com/97942772/193222696-c1a6ee6f-2b77-423c-beaf-8f7fe60aa0ba.png)
 
-## 6. Result
-+ DEG 분석에서 LogFC의 절댓값이 2 이상이고, 두 샘플의 RPKM 값 모두 1이 넘는 유전자만 필터링함. [rnaseq_zebrafish_filtered.tsv.txt](https://github.com/Park-JungJoon/Zebra_fish-RNAseq/blob/main/Supplementary_data/rnaseq_zebrafish_filtered.tsv.txt)
-+ 기준을 통과한 유전자들의 통계는 아래와 같음.
+   + RPKM를 이용해 그린 heatmap에서 각 샘플의 replicate끼리 clustering이 되는 것을 확인함.
 
+## 6. Result
++ DEG 분석에서 LogFC의 절댓값이 3 이상인 유전자 중, 1,4-NQ과의 연관성이 과거 논문으로 알려진 유전자를 탐색함.
 + Strongly upregulated group에 포함된 hsp70.3, hsp70.1, hsp90aa1.2, dnaja (hsp40) 유전자가 human carcinoma A431 cell에서 1,4-NQ 처리 시 발현이 증가했다는 [연구 결과](https://www.sciencedirect.com/science/article/pii/S0891584916311492)가 있음.
-+ Strongly upregulated group의 나머지 유전자인 [LOC103909982](https://www.ncbi.nlm.nih.gov/gene/103909982), pdcd4b-2, pdcd4b, [si:dkey-204l11.1](https://www.ncbi.nlm.nih.gov/gene/100006301), bbc3는 programmed cell death 또는 apoptosis 관련 유전자로 확인되었고, 1,4-NQ는 electron-accepting capability으로 인해 ROS (reactive oxygen species) 생산을 증가시켜 cell apoptosis를 유발한다는 [연구 결과](https://www.spandidos-publications.com/10.3892/mmr.2019.10500)가 있음.
++ 또한 strongly upregulated group인 [LOC103909982](https://www.ncbi.nlm.nih.gov/gene/103909982), pdcd4b-2, pdcd4b, [si:dkey-204l11.1](https://www.ncbi.nlm.nih.gov/gene/100006301), bbc3는 programmed cell death 또는 apoptosis 관련 유전자로 확인되었고, 1,4-NQ는 electron-accepting capability으로 인해 ROS (reactive oxygen species) 생산을 증가시켜 cell apoptosis를 유발한다는 [연구 결과](https://www.spandidos-publications.com/10.3892/mmr.2019.10500)가 있음.
 + 또한 upregulated group에서도 heat shock protein (HSP) 관련 유전자들인 dnajb1b, ahsa1a, dnajb2, hspa4a 등이 확인됨.
 + 따라서 이번 실험에서 확인한 1,4-NQ 처리 후 발견된 DEG들이 기존의 연구들과 유사한 경향성을 보이고 있다고 할 수 있음.
 
