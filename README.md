@@ -6,7 +6,7 @@
 ## 2. Data collecting
 + 실험 및 RNA 추출: 충남대학교 생명시스템과학대학 김철희 교수님 연구실 박사과정 PUSPANJALI SWAIN 연구원
 + Sequencing: [Marcrogen, Inc.](https://www.macrogen.com/ko/main)
-+ 전체 sample은 2개로 sample 1은 아무 물질도 처리하지 않은 control group이고, sample 2는 0.5μM의 1,4-NQ를 6hpf 시점에서 처리한 group이다.
++ 전체 sample은 2개로 sample 1은 아무 물질도 처리하지 않은 control group, sample 2는 0.5μM의 1,4-NQ를 6hpf 시점에서 처리한 group임.
 
    | Sample | Category | Treat | Extract point
    | - | - | - | -
@@ -35,7 +35,7 @@
    | Sample2_1 | 37,414,748 | 37,414,748 | 3,778,889,548 | 3,752,045,586 (99.3%)
    | Sample2_2 | 37,414,748 | 37,414,748 | 3,778,889,548 | 3,745,527,653 (99.1%)
 
-+ QC가 끝난 sample에 대해 sample1, sample2의 read를 무작위하게 3개로 나눠 각 샘플당 3개의 replicate를 만듦.
++ QC가 끝난 read를 무작위하게 3개로 나눠 각 샘플당 3개의 replicate (a, b, c)를 만듦.
 
 ## 4. Read alignment
 + NCBI reference genome을 대상으로 QC가 끝난 read를 사용해 HISAT2 (v2.2.1)를 사용해 read alignment를 진행함.
@@ -54,42 +54,43 @@
 ## 5. DEG analysis
 + R의 GenomicAlignments package (v1.30.0)를 사용해 gene 별로 align된 read의 raw count를 구함.
 + Raw count를 R의 edgeR package (v3.36.0)를 사용해 RPKM, Log2FC (Fold change), P-value 등의 값을 계산함. [2022_zebrafish_triplate_deg_table_20210405.txt](https://github.com/Park-JungJoon/Zebra_fish-RNAseq/blob/main/Supplementary_data/2022_zebrafish_triplate_deg_table_20210405.txt)
-+ Protein-coding gene을 제외한, tRNA, rRNA, miRNA, lncRNA 등의 non-coding gene은 모두 제거함
++ Protein-coding gene을 제외한, tRNA, rRNA, miRNA, lncRNA 등의 non-coding gene은 모두 제거함.
 
-### 5.1 edge R
+### 5.1 edgeR analysis
 + 아래 표는 Sample 1, 2의 유전자 발현량 기본 통계를 나타냄.
+
   * Raw count 
   
-   | Statistics | Sample1_a raw count | Sample1_b raw count | Sample1_c raw count | Sample2_a raw count | Sample2_b raw count | Sample2_c raw count | Sample 1 AVG raw count | Sample 2 AVG raw count|
+   | Statistics | Sample1_a raw count | Sample1_b raw count | Sample1_c raw count | Sample2_a raw count | Sample2_b raw count | Sample2_c raw count | Sample 1 mean raw count | Sample 2 mean raw count|
    | - | - | - | - | - | - | - | - | - 
    | Mean | 652.8 | 652.5 | 652.7 | 643.7 | 643.5 | 644.3 | 652.69 | 643.9
    | Min | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0
-   | Max | 197,521 | 196,954 | 197,521 | 160,595 | 162,025 | 161,897 | 197,332 | 161,506 |
+   | Max | 197,521 | 196,954 | 197,521 | 160,595 | 162,025 | 161,897 | 197,332 | 161,506
    | 1st Quarter | 13 | 13 | 14 | 16 | 16 | 16 | 13.67 | 16
    | Median | 107 | 106 | 106 | 113 | 112 | 112 | 106.33 | 113
    | 3rd Quarter | 502 | 503 | 502 | 505 | 505 | 506 | 501.67 | 506.4
    
    * RPKM
 
-   | Statistics | Sample1_a RPKM | Sample1_b RPKM | Sample1_c RPKM | Sample2_a RPKM | Sample2_b RPKM | Sample2_c RPKM | Sample 1 AVG RPKM | Sample 2 AVG RPKM |
+   | Statistics | Sample1_a RPKM | Sample1_b RPKM | Sample1_c RPKM | Sample2_a RPKM | Sample2_b RPKM | Sample2_c RPKM | Sample 1 mean RPKM | Sample 2 mean RPKM |
    | - | - | - | - | - | - | - | - | - 
    | Mean | 2.394 | 2.391 | 2.391 | 2.416 | 2.413 | 2.415 | 2.392 | 2.4145
    | Min | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0
-   | Max | 1736.59 | 1718.83 | 1791.81 | 1853.94 | 1865.12 | 1904.55 | 1749.08 | 1874.54 |
+   | Max | 1736.59 | 1718.83 | 1791.81 | 1853.94 | 1865.12 | 1904.55 | 1749.08 | 1874.54
    | 1st Quarter | 0.056 | 0.056 | 0.056 | 0.063 | 0.063 | 0.064 | 0.0575 | 0.065
    | Median | 0.298 | 0.298 | 0.297 | 0.305 | 0.309 | 0.309 | 0.298 | 0.308
    | 3rd Quarter | 1.266 | 1.266 | 1.270 | 1.274 | 1.271 | 1.268 | 1.272 | 1.273
    
 + 유전자 발현량 차이에 따라 유전자를 아래와 같이 분류함.
-  * P-value 0.005이하는 통계적으로 DEG가 아님. Log FC 값에 상관 없이 Non DEG에 분류함.   
+  * P-value가 0.005 이상인 유전자는 LogFC 값에 상관 없이 Non DEG로 분류함.
 
-   | DEG category | LogFC (Treat/Control) | Count
+   | DEG category | LogFC (1,4-NQ treat/Control) | Count
    | - | - | -
-   | Total genes | - | 32,843
+   | Total | - | 32,843
    | Strongly upregulated | LogFC >= 3 | 176
    | Upregulated | 3 > LogFC >= 2 | 197
    | Slightly upregulated | 2 > LogFC >= 1 | 759
-   | NA | 1 > LogFC >= -1 | 31,402
+   | Non DEG | 1 > LogFC >= -1 or P-value > 0.005 | 31,402
    | Slightly downregulated | -1 > LogFC > -2 | 215
    | Downregulated | -2 >= LogFC > -3 | 36
    | Strongly downregulated | -3 >= LogFC | 58
